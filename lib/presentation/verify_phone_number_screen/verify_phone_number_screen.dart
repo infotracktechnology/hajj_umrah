@@ -1,0 +1,11 @@
+import 'package:hajj_urma/widgets/app_bar/custom_app_bar.dart';import 'package:hajj_urma/widgets/app_bar/appbar_leading_iconbutton.dart';import 'package:hajj_urma/widgets/custom_pin_code_text_field.dart';import 'package:hajj_urma/widgets/custom_elevated_button.dart';import 'package:flutter/material.dart';import 'package:hajj_urma/core/app_export.dart';class VerifyPhoneNumberScreen extends StatelessWidget {const VerifyPhoneNumberScreen({Key? key}) : super(key: key);
+
+@override Widget build(BuildContext context) { return SafeArea(child: Scaffold(resizeToAvoidBottomInset: false, appBar: _buildAppBar(context), body: Container(width: double.maxFinite, padding: EdgeInsets.symmetric(horizontal: 23.h, vertical: 26.v), child: Column(children: [Align(alignment: Alignment.centerLeft, child: Padding(padding: EdgeInsets.only(left: 1.h), child: Text("Verify phone number", style: theme.textTheme.headlineSmall))), SizedBox(height: 7.v), Align(alignment: Alignment.centerLeft, child: Container(width: 299.h, margin: EdgeInsets.only(left: 1.h, right: 28.h), child: RichText(text: TextSpan(children: [TextSpan(text: "We send a code to (", style: CustomTextStyles.titleSmallff74778b_1), TextSpan(text: " *****783). Enter it here to verify your identity", style: CustomTextStyles.titleSmallff16161a)]), textAlign: TextAlign.left))), SizedBox(height: 47.v), Padding(padding: EdgeInsets.only(left: 1.h), child: CustomPinCodeTextField(context: context, onChanged: (value) {})), SizedBox(height: 33.v), Text("Resend Code", style: CustomTextStyles.titleMediumPrimarySemiBold), SizedBox(height: 50.v), CustomElevatedButton(text: "Confrim", onPressed: () {onTapConfrim(context);}), SizedBox(height: 5.v)])))); } 
+/// Section Widget
+PreferredSizeWidget _buildAppBar(BuildContext context) { return CustomAppBar(leadingWidth: double.maxFinite, leading: AppbarLeadingIconbutton(imagePath: ImageConstant.imgArrowLeftPrimarycontainer, margin: EdgeInsets.fromLTRB(24.h, 8.v, 311.h, 8.v), onTap: () {onTapArrowLeft(context);}), styleType: Style.bgFill); } 
+
+/// Navigates back to the previous screen.
+onTapArrowLeft(BuildContext context) { Navigator.pop(context); } 
+/// Navigates to the selectVirtualAppScreen when the action is triggered.
+onTapConfrim(BuildContext context) { Navigator.pushNamed(context, AppRoutes.selectVirtualAppScreen); } 
+ }
